@@ -5,22 +5,40 @@
   <body>
     <h1>...</h1>
     <script>
-      const fs = require('fs');
-      
-      // 读取 JSON 文件
-      fs.readFile('/file/a.json', 'utf8', (err, data) => {
-          if (err) {
-              console.error('Error reading JSON file:', err);
-              return;
-          }
-          try {
-              const jsonData = JSON.parse(data);
-              console.log(jsonData); // 输出 JSON 数据
-              // 在这里可以对 JSON 数据进行操作
-          } catch (error) {
-              console.error('Error parsing JSON data:', error);
-          }
-      });
+// 创建一个新的 XMLHttpRequest 对象
+var xhr = new XMLHttpRequest();
+
+// 指定要获取的 JSON 文件的 URL
+var url = '/file/a.json';
+
+// 设置请求方法和请求地址
+xhr.open('GET', url, true);
+
+// 指定响应的数据类型为 JSON
+xhr.responseType = 'json';
+
+// 当请求完成时的回调函数
+xhr.onload = function() {
+    // 如果请求成功
+    if (xhr.status === 200) {
+        // 获取 JSON 数据
+        var jsonData = xhr.response;
+        console.log(jsonData); // 输出 JSON 数据
+        // 在这里可以对 JSON 数据进行操作
+    } else {
+        // 请求失败时的处理
+        console.error('Failed to load JSON file:', xhr.statusText);
+    }
+};
+
+// 当请求出错时的回调函数
+xhr.onerror = function() {
+    console.error('Network error occurred while fetching JSON file.');
+};
+
+// 发送请求
+xhr.send();
+
     </script>
   </body>
 </html>
