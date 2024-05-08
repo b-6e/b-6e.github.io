@@ -4,13 +4,15 @@
   </head>
   <body>
     <h1>...</h1>
-    // 异步请求读取 JSON 文件
-    fetch('a.json')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // 输出 JSON 数据
-      // 在这里可以对 JSON 数据进行操作
-    })
-    .catch(error => console.error('Error reading JSON file:', error));
+    <script>
+      // 异步请求读取 JSON 文件
+      fetch('/file/a.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // 输出 JSON 数据
+        // 在这里可以对 JSON 数据进行操作
+      })
+      .catch(error => console.error('Error reading JSON file:', error));
+    <script>
   </body>
 </html>
