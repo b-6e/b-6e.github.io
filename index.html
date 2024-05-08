@@ -5,14 +5,22 @@
   <body>
     <h1>...</h1>
     <script>
-      // 异步请求读取 JSON 文件
-      fetch('https://b-6e.github.io/file/a.json')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data); // 输出 JSON 数据
-        // 在这里可以对 JSON 数据进行操作
-      })
-      .catch(error => console.error('Error reading JSON file:'));
+      const fs = require('fs');
+      
+      // 读取 JSON 文件
+      fs.readFile('/file/a.json', 'utf8', (err, data) => {
+          if (err) {
+              console.error('Error reading JSON file:', err);
+              return;
+          }
+          try {
+              const jsonData = JSON.parse(data);
+              console.log(jsonData); // 输出 JSON 数据
+              // 在这里可以对 JSON 数据进行操作
+          } catch (error) {
+              console.error('Error parsing JSON data:', error);
+          }
+      });
     <script>
   </body>
 </html>
