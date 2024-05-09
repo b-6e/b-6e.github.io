@@ -1,24 +1,39 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>...</title>
-	<meta charset="UTF-8">
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  </head>
-  <body>
-    <h1 class="stu">学生:</h1>
+
+<head>
+    <title>分数统计</title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="icon" href="/file/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <a href="/"><img class="icon" src="/file/icon.png"></a>
+    <div class="stu"><h1 onclick="a()">点击重新加载</h1></div>
     <script>
-		$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
-			console.log('Received data:', jsonData);
-			var fileList = jsonData.file;
-			var contributionElement = document.querySelector('.stu');
-			fileList.forEach(function (file) {
-            var linkElement = document.createElement('a');
-            linkElement.textContent = "名称: " + file.name + "分数: " + file.score;
-            contributionElement.parentNode.insertBefore(linkElement, contributionElement);
-            contributionElement.parentNode.insertBefore(document.createElement('br'), contributionElement);
-			});
-			contributionElement.innerHTML = "";
-		})
+        var xxx = false;
+        function a(){
+            if(xxx === false){
+                xxx=true;
+                $.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
+                    console.log('Received data:', jsonData);
+                    var fileList = jsonData.file;
+                    var contributionElement = document.querySelector('.stu');
+                    fileList.forEach(function (file) {
+                        var linkElement = document.createElement('a');
+                                           linkElement.textContent = "名称: " + file.name + "分数: " + file.score;
+                        contributionElement.parentNode.insertBefore(linkElement, contributionElement);
+                        contributionElement.parentNode.insertBefore(document.createElement('br'), contributionElement);
+                    });
+                    contributionElement.innerHTML = "";
+                })
+            }
+        }
+        window.onload = function () {
+            a();
+        };
     </script>
-  </body>
+</body>
+
 </html>
