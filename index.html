@@ -1,24 +1,24 @@
 <html>
   <head>
-  	<meta charset="UTF-8">
-  	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>...</title>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
     <h1 class="stu">学生:</h1>
     <script>
-				$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
-					console.log('Received data:', jsonData);
-					var fileList = jsonData.file;
-					var contributionElement = document.querySelector('.stu');
-					fileList.forEach(function (file) {
+		$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
+			console.log('Received data:', jsonData);
+			var fileList = jsonData.file;
+			var contributionElement = document.querySelector('.stu');
+			fileList.forEach(function (file) {
             var linkElement = document.createElement('a');
             linkElement.textContent = "名称: " + file.name + "分数: " + file.score;
             contributionElement.parentNode.insertBefore(linkElement, contributionElement);
             contributionElement.parentNode.insertBefore(document.createElement('br'), contributionElement);
-					});
-					contributionElement.innerHTML = "";
-				})
+			});
+			contributionElement.innerHTML = "";
+		})
     </script>
   </body>
 </html>
