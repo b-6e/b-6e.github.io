@@ -15,10 +15,10 @@
 	<a href="/edit" class="edit">修改</a>
 	<script>
 		var xxx = false;
+		var fileList;
 		function a(){
 			if(xxx === false){
 				xxx=true;
-				var fileList;
 				$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
 					fileList = jsonData.file;
 					console.log('Received data:', jsonData);
@@ -31,7 +31,7 @@
 					});
 					contributionElement.innerHTML = "";
 				})
-				console.log('Received data:', data);
+				console.log('Received data:', fileList);
 			}
 		}
 		window.onload = function () {
