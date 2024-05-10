@@ -34,6 +34,24 @@
 				console.log('Received data:', fileList);
 			}
 		}
+		function w(){
+			const fs = require('fs');
+			// 你的变量
+			const a = {"file":fileList};
+			
+			// 将对象转换为 JSON 字符串
+			const jsonData = JSON.stringify(a);
+			
+			// 写入到文件中
+			fs.writeFile('/file/a.json', jsonData, (err) => {
+			  if (err) {
+			    console.error('写入文件时出错:', err);
+			    return;
+			  }
+			  console.log('文件已成功写入');
+			});
+
+		}
 		window.onload = function () {
 			a();
 		};
