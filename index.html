@@ -23,7 +23,7 @@
 					var contributionElement = document.querySelector('.stu');
 					fileList.forEach(function (file) {
 						var linkElement = document.createElement('a');
-										   linkElement.textContent = "名称: " + file.name + "分数: " + file.score;
+							linkElement.textContent = "名称: " + file.name + "分数: " + file.score;
 						contributionElement.parentNode.insertBefore(linkElement, contributionElement);
 						contributionElement.parentNode.insertBefore(document.createElement('br'), contributionElement);
 					});
