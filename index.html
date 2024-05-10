@@ -17,11 +17,10 @@
 		function a(){
 			if(xxx === false){
 				xxx=true;
-				var data;
+				var fileList;
 				$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
-					data = jsonData;
+					fileList = jsonData.file;
 					console.log('Received data:', jsonData);
-					var fileList = jsonData.file;
 					var contributionElement = document.querySelector('.stu');
 					fileList.forEach(function (file) {
 						var linkElement = document.createElement('a');
