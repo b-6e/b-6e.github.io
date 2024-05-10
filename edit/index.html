@@ -19,7 +19,7 @@
 		function a(){
 			if(xxx === false){
 				xxx=true;
-				$.getJSON('https://b-6e.github.io/file/a.json', function (jsonData) {
+				$.getJSON('/file/a.json', function (jsonData) {
 					fileList = jsonData.file;
 					console.log('Received data:', jsonData);
 					var contributionElement = document.querySelector('.stu');
