@@ -1,6 +1,6 @@
 {
   "file": [
-    {name:"lwh",score:0},
-    {name:"zpw",score:0}
+    {"name":"lwh","score":"0"},
+    {"name":"zpw","score":"0"}
   ]
 }
